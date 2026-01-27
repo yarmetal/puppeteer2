@@ -1,0 +1,21 @@
+{
+  "name": "jsaqa_3_3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "cucumber": "cucumber-js"
+  },
+  "author": "Igor Davydov",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.5.0",
+    "cucumber": "^6.0.7",
+    "jest-puppeteer": "^11.0.0",
+    "puppeteer": "^24.36.0"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
