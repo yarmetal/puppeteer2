@@ -50,7 +50,9 @@ describe("App for booking a movie tests", () => {
   test("Booking of unavailible seat", async () => {
     await page.waitForSelector("h1");
     await clickElement(page, "a:nth-child(3)");
-    await clickElement(page, ".movie-seances__time[href='#'][data-seance-id='217']",
+    await clickElement(
+      page,
+      ".movie-seances__time[href='#'][data-seance-id='217']",
     );
     expect(
       String(
