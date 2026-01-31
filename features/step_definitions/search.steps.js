@@ -2,7 +2,7 @@ const puppeteer = require("puppeteer");
 const chai = require("chai");
 const expect = chai.expect;
 const { Given, When, Then, Before, After, setDefaultTimeout } = require("cucumber");
-const { putText, getText, clickElement } = require("../../lib/commands.js");
+const { putText, getText, clickElement, isActive } = require("../../lib/commands.js");
 setDefaultTimeout(10000);
 
 Before(async function () {
@@ -51,12 +51,8 @@ When("user choose fourth seat", async function () {
   return await clickElement(this.page, "div:nth-child(6) span:nth-child(4)");
 });
 
-// When("user choose unavailable seat", async function () {
-//   return await clickElement(this.page, "div:nth-child(8) span:nth-child(4)");
-// });
-
 When("user presses a booking button", async function () {
-  return await clickElement(this.page, ".acceptin-button");
+  return await clickElement(".acceptin-button");
 });
 
 Then("valid booking {string}", async function (string) {
@@ -65,11 +61,7 @@ Then("valid booking {string}", async function (string) {
   await expect(actual).contains(expected);
 });
 
-Then("button for booking is inactive {string}", async function (string) {
-  await page.$eval((this.page, ".acceptin-button"), (button) => {
-  return button.disabled;
-    },
-  );
-  const expected = await string;
-  expect(actual).contains(expected);
+Then("button for booking is inactive {string}", async function () {
+  const isDisabled = await isActive((el) => el.disabled);
+  return isDisabled;
 });

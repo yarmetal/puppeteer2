@@ -20,5 +20,6 @@ Feature: Book a seat in the movie app
         Given user is on "/index.php" page
         When user choose date
         When user choose time
-        # When user choose unavailable seat
+        When user presses a booking button
         Then button for booking is inactive "true"
+        
