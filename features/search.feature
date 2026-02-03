@@ -21,5 +21,5 @@ Feature: Book a seat in the movie app
         When user choose date
         When user choose time
         When user presses a booking button
-        Then button for booking is inactive "true"
+        Then button for booking is inactive
         

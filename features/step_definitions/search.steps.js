@@ -52,7 +52,7 @@ When("user choose fourth seat", async function () {
 });
 
 When("user presses a booking button", async function () {
-  return await clickElement(".acceptin-button");
+  return await clickElement(this.page, ".acceptin-button");
 });
 
 Then("valid booking {string}", async function (string) {
@@ -61,7 +61,7 @@ Then("valid booking {string}", async function (string) {
   await expect(actual).contains(expected);
 });
 
-Then("button for booking is inactive {string}", async function () {
-  const isDisabled = await isActive((el) => el.disabled);
+Then("button for booking is inactive", async function () {
+  const isDisabled = await isActive(this.page, ".acceptin-button");
   return isDisabled;
 });
